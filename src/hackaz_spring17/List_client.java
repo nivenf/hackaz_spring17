@@ -31,7 +31,7 @@ public class List_client {
 	
 	public boolean swap(int x, int y) {
 		System.out.println("What items would you like to swap?");
-		if(x.doesExist() && y.doesExist()){
+		if(doesExist(x) && doesExist(y)){
 			String xIndex = li.get(x);
 			String yIndex = li.get(y);
 			String temp = xIndex;
