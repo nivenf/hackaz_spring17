@@ -6,12 +6,17 @@ public class List_client {
 	
 	ArrayList<String> li;
 	
-	public boolean add() {
+	public boolean add(){
 		
 	}
 	
-	public boolean remove() {
-		
+	public boolean remove(int item){
+		if(li.isEmpty() || item > li.size()){
+			return false;
+		}
+		else
+			li.remove(item);
+			return true;
 	}
 	
 	public boolean swap() {
