@@ -6,6 +6,7 @@ public class List_client {
 	
 	ArrayList<String> li;
 	
+<<<<<<< HEAD
 	public boolean add(String n) {
 		if(n.length() > 0){
 			li.add(n);
@@ -17,10 +18,19 @@ public class List_client {
 			return false;
 		}
 		return false;
+=======
+	public boolean add(){
+		
+>>>>>>> ea0b4f93685a0c7ee5a47a6f2fd6da457629d628
 	}
 	
-	public boolean remove() {
-		
+	public boolean remove(int item){
+		if(li.isEmpty() || item > li.size()){
+			return false;
+		}
+		else
+			li.remove(item);
+			return true;
 	}
 	
 	public boolean swap() {
