@@ -10,11 +10,13 @@ public class List_test {
 		keyboard = new Scanner(System.in);
 		li = new List_client();
 		System.out.println("Current list: " + li.listString());
-		
+		test();
+		}
+	
+	public static void test() {
 		System.out.println("What would you like to do: add/remove/swap/move");
 		String input = keyboard.next();
-		System.out.println(input);
-		
+
 		if(input.equals("add"))
 			add();
 		else if(input.equals("remove"))
@@ -25,6 +27,7 @@ public class List_test {
 			move();
 		else
 			System.out.println("Usage: Please type a command: add/remove/swap/move");
+	
 	}
 	
 	public static void add() {
@@ -35,6 +38,7 @@ public class List_test {
 			System.out.println("Current list: " + li.listString());
 		else
 			System.out.println("Couldn't add. Current list: " + li.listString());
+		test();
 	}
 	
 	public static void remove() {
@@ -45,6 +49,7 @@ public class List_test {
 			System.out.println("Current list: " + li.listString());
 		else
 			System.out.println("Couldn't remove. Current list: " + li.listString());
+		test();
 	}
 	
 	public static void swap() {
@@ -56,6 +61,7 @@ public class List_test {
 			System.out.println("Current list: " + li.listString());
 		else
 			System.out.println("Couldn't swap. Current list: " + li.listString());
+		test();
 	}
 	
 	public static void move() {
@@ -66,5 +72,6 @@ public class List_test {
 			System.out.println("Current list: " + li.listString());
 		else
 			System.out.println("Couldn't swap. Current list: " + li.listString());
- 	}
+		test();
+	}
 }
