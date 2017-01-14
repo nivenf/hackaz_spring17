@@ -38,7 +38,9 @@ public class List_client {
 			return false;
 		}
 		else{
-		return false;
+			li.add(0,li.get(item));
+			remove(item+1);
+			return true;
 		}
 		
 	}
