@@ -20,11 +20,12 @@ public class List_client {
 	}
 	
 	public boolean remove(int item){
-		if(li.isEmpty() || item > li.size()){
+		if(doesExist(item) == false){
 			return false;
 		}
 		else
 			li.remove(item);
+			System.out.println("Item successfully removed");
 			return true;
 	}
 	
@@ -46,8 +47,22 @@ public class List_client {
 	
 	}
 	
-	public boolean moveToTop() {
+	public boolean moveToTop(int item) {
+		if(doesExist(item) == false){
+			return false;
+		}
+		else{
+		return false;
+		}
 		
+	}
+	
+	public boolean doesExist(int item){
+		if(li.isEmpty() || item > li.size()){
+			System.out.println("That item was not in the list");
+			return false;
+		}
+		return true;
 	}
 	
 	public String listString() {
