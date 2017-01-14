@@ -35,7 +35,7 @@ public class List_test {
 		String in = keyboard.next();
 		
 		if(li.add(in))
-			System.out.println("Current list: " + li.listString());
+			System.out.println("Current list: \n" + li.listString());
 		else
 			System.out.println("Couldn't add. Current list: " + li.listString());
 		test();
@@ -46,7 +46,7 @@ public class List_test {
 		int in = Integer.parseInt(keyboard.next());
 		
 		if(li.remove(in))
-			System.out.println("Current list: " + li.listString());
+			System.out.println("Current list: \n" + li.listString());
 		else
 			System.out.println("Couldn't remove. Current list: " + li.listString());
 		test();
@@ -58,7 +58,7 @@ public class List_test {
 		int in2 = Integer.parseInt(keyboard.next());
 		
 		if(li.swap(in1, in2))
-			System.out.println("Current list: " + li.listString());
+			System.out.println("Current list: \n" + li.listString());
 		else
 			System.out.println("Couldn't swap. Current list: " + li.listString());
 		test();
@@ -69,7 +69,7 @@ public class List_test {
 		int in = Integer.parseInt(keyboard.next());
 		
 		if(li.moveToTop(in))
-			System.out.println("Current list: " + li.listString());
+			System.out.println("Current list: \n" + li.listString());
 		else
 			System.out.println("Couldn't swap. Current list: " + li.listString());
 		test();

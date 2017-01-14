@@ -1,10 +1,23 @@
+// ☑☐
+
 package hackaz_spring17;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class List_client {
 
 	ArrayList<String> li;
+	
 	
 	public List_client() {
 		li = new ArrayList<String>();
@@ -37,6 +50,11 @@ public class List_client {
 			String temp = li.get(x);
 			li.set(x, li.get(y));
 			li.set(y, temp);
+<<<<<<< HEAD
+=======
+			
+
+>>>>>>> 096b63647cf0c0ac99bbc65705f6d50b6174c23e
 			return true;
 		} else {
 			System.out.println("At least one of the items was not found.");
@@ -70,7 +88,7 @@ public class List_client {
 		String result = "";
 		if (li.size() != 0)
 			for (int x = 0; x < li.size(); x++) {
-				result += li.get(x) + " ";
+				result += "☐   " + li.get(x) + "\n";
 			}
 		return result;
 	}
