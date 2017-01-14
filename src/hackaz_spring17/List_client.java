@@ -1,10 +1,23 @@
+// ☑☐
+
 package hackaz_spring17;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class List_client {
 
 	ArrayList<String> li;
+	
 	
 	public List_client() {
 		li = new ArrayList<String>();
@@ -70,7 +83,7 @@ public class List_client {
 		String result = "";
 		if (li.size() != 0)
 			for (int x = 0; x < li.size(); x++) {
-				result += li.get(x) + " ";
+				result += "☐   " + li.get(x) + "\n";
 			}
 		return result;
 	}
