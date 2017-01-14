@@ -1,3 +1,5 @@
+// ☑☐
+
 package hackaz_spring17;
 
 import java.util.ArrayList;
@@ -71,7 +73,7 @@ public class List_client {
 		String result = "";
 		if (li.size() != 0)
 			for (int x = 0; x < li.size(); x++) {
-				result += li.get(x) + " ";
+				result += "☐   " + li.get(x) + "\n";
 			}
 		return result;
 	}
