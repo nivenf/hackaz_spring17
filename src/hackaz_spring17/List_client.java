@@ -34,12 +34,9 @@ public class List_client {
 	public boolean swap(int x, int y) {
 		System.out.println("What items would you like to swap?");
 		if (doesExist(x) && doesExist(y)) {
-			String xIndex = li.get(x);
-			String yIndex = li.get(y);
-			String temp = xIndex;
-			xIndex = yIndex;
-			yIndex = temp;
-
+			String temp = li.get(x);
+			li.set(x, li.get(y));
+			li.set(y, temp);
 			return true;
 		} else {
 			System.out.println("At least one of the items was not found.");
@@ -50,10 +47,12 @@ public class List_client {
 
 	public boolean moveToTop(int item) {
 		if (doesExist(item) == false) {
+			System.out.println("That item was not in the list.");
 			return false;
 		} else {
 			li.add(0, li.get(item));
 			remove(item + 1);
+			System.out.println("Sucessfully moved to the top.");
 			return true;
 		}
 
