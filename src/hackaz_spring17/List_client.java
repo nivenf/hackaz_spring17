@@ -28,8 +28,22 @@ public class List_client {
 			return true;
 	}
 	
-	public boolean swap() {
-		
+	public boolean swap(int x, int y) {
+		System.out.println("What items would you like to swap?");
+		if(x.doesExist() && y.doesExist()){
+			String xIndex = li.get(x);
+			String yIndex = li.get(y);
+			String temp = xIndex;
+			xIndex = yIndex;
+			yIndex = temp;
+			
+			return true;
+		}
+		else{
+			System.out.println("At least one of the items was not found.");
+			return false;
+		}
+	
 	}
 	
 	public boolean moveToTop() {
