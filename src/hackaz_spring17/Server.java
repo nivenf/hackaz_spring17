@@ -13,8 +13,12 @@ public class Server {
 
 	public static final int Server_Port = 7;
 	
-	private static ServerSocker socket;
+	private static ServerSocket socket;
 	
-	
+	 while (true) {
+	      Socket s = socket.accept();
+
+	      ObjectInputStream inputStream = new ObjectInputStream(s.getInputStream());
+	      ObjectOutputStream outputStream = new ObjectOutputStream(s.getOutputStream());
 	
 }
