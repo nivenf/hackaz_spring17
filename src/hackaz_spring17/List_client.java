@@ -38,8 +38,7 @@ public class List_client extends JFrame {
 	JTextField field;
 	JButton add;
 	JButton remove;
-	JButton swap;
-	JButton move;
+	JButton help;
 	JScrollPane list;
 	JList<String> user_list;
 	ListModel<String> listModel = new DefaultListModel<String>();
@@ -65,9 +64,9 @@ public class List_client extends JFrame {
 		
 		user_list.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent evt) {
-				JList list = (JList)evt.getSource();
+				JList listtemp = (JList)evt.getSource();
 				if(evt.getClickCount() == 2) {
-					int index = list.locationToIndex(evt.getPoint());
+					int index = listtemp.locationToIndex(evt.getPoint());
 					String r = ((DefaultListModel<String>) listModel).getElementAt(index);
 					if(r.charAt(0) == 'O')
 						((DefaultListModel<String>) listModel).set(index, "X" + ((DefaultListModel<String>) listModel).getElementAt(index).substring(1));
@@ -75,11 +74,15 @@ public class List_client extends JFrame {
 						((DefaultListModel<String>) listModel).set(index, "O" + ((DefaultListModel<String>) listModel).getElementAt(index).substring(1));
 					
 				}
+				else if(evt.getClickCount() == 3) {
+					int index = listtemp.locationToIndex(evt.getPoint());
+					removeIndex(index);
+				}
 			}
 		});
 		
 		setTitle(name);
-		setSize(400, 400);
+		setSize(800, 1000);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		
@@ -91,16 +94,22 @@ public class List_client extends JFrame {
 		ButtonListener removeListener = new ButtonListener();
 		remove.addActionListener(removeListener);
 		
+		help = new JButton("Help");
+		ButtonListener helpListener = new ButtonListener();
+		help.addActionListener(helpListener);
+		
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 		panel.add(add);
 		panel.add(remove);
+		panel.add(help);
 		
 		JPanel listPane = new JPanel();
 		listPane.setLayout(new BorderLayout());
 		
 		list = new JScrollPane(this.user_list);
-		list.setFont(list.getFont().deriveFont(12f));
+		list.setFont(list.getFont().deriveFont(100f));
 		list.setFocusable(false);
 		listPane.add(list, BorderLayout.CENTER);
 		
@@ -211,9 +220,15 @@ public class List_client extends JFrame {
 				int in = Integer.parseInt(JOptionPane.showInputDialog("Which index would you like to move to the top?"));
 				moveToTop(in);
 			}
+			else if(e.getActionCommand().equals("Help")) {
+				JOptionPane.showMessageDialog(null, "Usage: \nDouble click to check/uncheck\nTriple click to remove");
+			}
 		}
 	}
-	
+
+	// Drag and drop for the JList
+	// Credit goes to Jan Taccis
+	// Source: http://stackoverflow.com/questions/3804361/how-to-enable-drag-and-drop-inside-jlist
 	private class MyMouseAdaptor extends MouseInputAdapter {
         private boolean mouseDragging = false;
         private int dragSourceIndex;
