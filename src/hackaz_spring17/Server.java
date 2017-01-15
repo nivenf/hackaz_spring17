@@ -15,7 +15,6 @@ public class Server {
 	
 	private static ServerSocket socket;
 	
-<<<<<<< HEAD
 	 while (true) {
 	      Socket s = socket.accept();
 
@@ -26,6 +25,5 @@ public class Server {
 			Collections.synchronizedList(new ArrayList<>());
 			
 	socket = new ServerSocket(SERVER_PORT);
->>>>>>> 509a7cbfab5fb062fd80fd01e210ae42f85092f8
 	
 }
