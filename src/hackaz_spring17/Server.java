@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Server {
 
-	public static final int Server_Port = 7;
+	public static final int Server_Port = 1025;
 	
 	private static ServerSocket socket;
 	
@@ -37,10 +37,5 @@ public class Server {
 			System.out.println("New connection accepted onto server from " 
 			+ socket.getInetAddress());
 		}
-	}
-	
-	
-	
-	
-	
+	}	
 }
