@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class List_client {
+public class List_client extends JFrame {
 
 	ArrayList<String> li;
 	
