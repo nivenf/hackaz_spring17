@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Server {
 
-	public static final int Server_Port = 7;
+	public static final int Server_Port = 1025;
 	
 	private static ServerSocket socket;
 	
@@ -21,7 +21,7 @@ public class Server {
 	
 	public static void main(String[] args) throws IOException {
 		socket = new ServerSocket(Server_Port);
-		System.out.println("Server up and running successfully. /n Port number "
+		System.out.println("Server up and running successfully. \nPort number "
 		+ Server_Port + " being used.");
 		
 		while(true){
@@ -39,9 +39,5 @@ public class Server {
 			+ socket.getInetAddress());
 		}
 	}
-	
-	
-	
-	
 	
 }
