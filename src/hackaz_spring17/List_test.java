@@ -21,10 +21,6 @@ public class List_test {
 			add();
 		else if(input.equals("remove"))
 			remove();
-		else if(input.equals("swap"))
-			swap();
-		else if(input.equals("move"))
-			move();
 		else
 			System.out.println("Usage: Please type a command: add/remove/swap/move");
 	
@@ -49,29 +45,6 @@ public class List_test {
 			System.out.println("Current list: \n" + li.listString());
 		else
 			System.out.println("Couldn't remove. Current list: " + li.listString());
-		test();
-	}
-	
-	public static void swap() {
-		System.out.println("What would you like to swap? Enter two integers");
-		int in1 = Integer.parseInt(keyboard.next());
-		int in2 = Integer.parseInt(keyboard.next());
-		
-		if(li.swap(in1, in2))
-			System.out.println("Current list: \n" + li.listString());
-		else
-			System.out.println("Couldn't swap. Current list: " + li.listString());
-		test();
-	}
-	
-	public static void move() {
-		System.out.println("What would you like to move to top? Enter an integer");
-		int in = Integer.parseInt(keyboard.next());
-		
-		if(li.moveToTop(in))
-			System.out.println("Current list: \n" + li.listString());
-		else
-			System.out.println("Couldn't swap. Current list: " + li.listString());
 		test();
 	}
 }

@@ -1,22 +1,11 @@
-// â˜‘â˜�
-
 package hackaz_spring17;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -33,6 +22,10 @@ import javax.swing.event.MouseInputAdapter;
 
 public class List_client extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	ArrayList<String> li;
 	String name;
 	JTextField field;
@@ -64,6 +57,7 @@ public class List_client extends JFrame {
 		
 		user_list.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent evt) {
+				@SuppressWarnings("rawtypes")
 				JList listtemp = (JList)evt.getSource();
 				if(evt.getClickCount() == 2) {
 					int index = listtemp.locationToIndex(evt.getPoint());
@@ -147,42 +141,6 @@ public class List_client extends JFrame {
 		return true;
 	}
 
-	public boolean swap(int x, int y) {
-		System.out.println("What items would you like to swap?");
-		if (doesExist(x) && doesExist(y)) {
-			String temp = li.get(x);
-			li.set(x, li.get(y));
-			li.set(y, temp);
-			((DefaultListModel<String>) listModel).set(x, listModel.getElementAt(y));
-			((DefaultListModel<String>) listModel).set(y, temp);
-			return true;
-		} else {
-			System.out.println("At least one of the items was not found.");
-			return false;
-		}
-
-	}
-
-	public boolean moveToTop(int item) {
-		if (doesExist(item) == false) {
-			System.out.println("That item was not in the list.");
-			return false;
-		} else {
-			if(item >= li.size())
-				return false;
-			li.add(0, li.get(item));
-			//remove(item + 1);
-			
-			String temp = ((DefaultListModel<String>) listModel).getElementAt(0);
-			((DefaultListModel<String>) listModel).set(0, ((DefaultListModel<String>) listModel).getElementAt(item));
-			((DefaultListModel<String>) listModel).set(item, temp);
-			
-			System.out.println("Sucessfully moved to the top.");
-			return true;
-		}
-
-	}
-
 	public boolean doesExist(int item) {
 		if (li.isEmpty() || item > li.size()) {
 			System.out.println("That item was not in the list");
@@ -210,15 +168,6 @@ public class List_client extends JFrame {
 			else if(e.getActionCommand().equals("Remove")) {
 				int in = Integer.parseInt(JOptionPane.showInputDialog("Which index would you like to remove?"));
 				removeIndex(in);
-			}
-			else if(e.getActionCommand().equals("Swap")) {
-				int in1 = Integer.parseInt(JOptionPane.showInputDialog("Enter first index to swap"));
-				int in2 = Integer.parseInt(JOptionPane.showInputDialog("Enter second index to swap"));
-				swap(in1, in2);
-			}
-			else if(e.getActionCommand().equals("Move To Top")) {
-				int in = Integer.parseInt(JOptionPane.showInputDialog("Which index would you like to move to the top?"));
-				moveToTop(in);
 			}
 			else if(e.getActionCommand().equals("Help")) {
 				JOptionPane.showMessageDialog(null, "Usage: \nDouble click to check/uncheck\nTriple click to remove");
