@@ -2,6 +2,10 @@
 
 package hackaz_spring17;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -10,23 +14,62 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class List_client {
+public class List_client extends JFrame {
 
 	ArrayList<String> li;
+	JTextField field;
+	JButton add;
+	JButton remove;
+	JButton swap;
+	JButton move;
+	JTextField list;
 	
 	
 	public List_client() {
 		li = new ArrayList<String>();
+		setupGUI();
+	}
+	
+	private void setupGUI() {
+		setTitle("TEST");
+		setSize(400, 400);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		add = new JButton("Add");
+		remove = new JButton("Remove");
+		swap = new JButton("Swap");
+		move = new JButton("Move To Top");
+		
+		JPanel panel = new JPanel();
+		panel.add(add);
+		panel.add(remove);
+		panel.add(swap);
+		panel.add(move);
+		
+		list = new JTextField();
+		list.setFont(new Font("Arial", Font.TRUETYPE_FONT, 12));
+		list.setSize(new Dimension(100, 100));
+		JPanel listPane = new JPanel();
+		list.setText(this.listString());
+		listPane.add(list);
+		
+		this.getContentPane().add(listPane);
+		this.getContentPane().add(panel);
+		
+		setVisible(true);
 	}
 
 	public boolean add(String n) {
 		if (n.length() > 0) {
 			li.add(n);
 			System.out.println("\"" + n + "\"" + " was added to the list.");
+			this.field.setText(this.listString());
 			return true;
 		} else if (n.length() <= 0) {
 			System.out.println("Nothing added to list!");
@@ -35,7 +78,7 @@ public class List_client {
 		return false;
 	}
 
-	public boolean remove(int item) {
+	public boolean removeIndex(int item) {
 		if (doesExist(item) == false) {
 			return false;
 		} else
