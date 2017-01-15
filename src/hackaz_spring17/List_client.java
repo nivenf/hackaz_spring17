@@ -1,4 +1,4 @@
-// ☑☐
+// â˜‘â˜�
 
 package hackaz_spring17;
 
@@ -122,10 +122,8 @@ public class List_client extends JFrame {
 			String temp = li.get(x);
 			li.set(x, li.get(y));
 			li.set(y, temp);
-			
 			((DefaultListModel<String>) listModel).set(x, listModel.getElementAt(y));
 			((DefaultListModel<String>) listModel).set(y, temp);
-
 			return true;
 		} else {
 			System.out.println("At least one of the items was not found.");
@@ -136,6 +134,7 @@ public class List_client extends JFrame {
 
 	public boolean moveToTop(int item) {
 		if (doesExist(item) == false) {
+			System.out.println("That item was not in the list.");
 			return false;
 		} else {
 			if(item >= li.size())
@@ -147,6 +146,7 @@ public class List_client extends JFrame {
 			((DefaultListModel<String>) listModel).set(0, ((DefaultListModel<String>) listModel).getElementAt(item));
 			((DefaultListModel<String>) listModel).set(item, temp);
 			
+			System.out.println("Sucessfully moved to the top.");
 			return true;
 		}
 
@@ -164,7 +164,7 @@ public class List_client extends JFrame {
 		String result = "";
 		if (li.size() != 0)
 			for (int x = 0; x < li.size(); x++) {
-				result += "☐   " + li.get(x) + "\n";
+				result += "â˜�   " + li.get(x) + "\n";
 			}
 		return result;
 	}
