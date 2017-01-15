@@ -15,12 +15,13 @@ public class Server {
 	
 	private static ServerSocket socket;
 	
-	private static List<ObjectOutputStream> clients = Collections.synchronizedList(new ArrayList<ObjectOutputStream>());
+	private static List<ObjectOutputStream> clients =
+			Collections.synchronizedList(new ArrayList<>());
 			
 	
 	public static void main(String[] args) throws IOException {
 		socket = new ServerSocket(Server_Port);
-		System.out.println("Server up and running successfully. \n Port number "
+		System.out.println("Server up and running successfully. \nPort number "
 		+ Server_Port + " being used.");
 		
 		while(true){
@@ -37,5 +38,6 @@ public class Server {
 			System.out.println("New connection accepted onto server from " 
 			+ socket.getInetAddress());
 		}
-	}	
+	}
+	
 }
