@@ -15,13 +15,12 @@ public class Server {
 	
 	private static ServerSocket socket;
 	
-	private static List<ObjectOutputStream> clients =
-			Collections.synchronizedList(new ArrayList<>());
+	private static List<ObjectOutputStream> clients = Collections.synchronizedList(new ArrayList<ObjectOutputStream>());
 			
 	
 	public static void main(String[] args) throws IOException {
 		socket = new ServerSocket(Server_Port);
-		System.out.println("Server up and running successfully. /n Port number "
+		System.out.println("Server up and running successfully. \n Port number "
 		+ Server_Port + " being used.");
 		
 		while(true){
