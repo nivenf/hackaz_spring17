@@ -13,8 +13,11 @@ public class Server {
 
 	public static final int Server_Port = 7;
 	
-	private static ServerSocker socket;
+	private static ServerSocket socket;
 	
-	
+	private static List<ObjectOutputStream> clients =
+			Collections.synchronizedList(new ArrayList<>());
+			
+	socket = new ServerSocket(SERVER_PORT);
 	
 }
