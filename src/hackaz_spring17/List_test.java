@@ -45,7 +45,7 @@ public class List_test {
 		System.out.print("Which index would you like to remove (starting at 0)?");
 		int in = Integer.parseInt(keyboard.next());
 		
-		if(li.remove(in))
+		if(li.removeIndex(in))
 			System.out.println("Current list: \n" + li.listString());
 		else
 			System.out.println("Couldn't remove. Current list: " + li.listString());
